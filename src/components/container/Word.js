@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link}  from 'react-router-dom';
 import {connect} from "react-redux";
-import activeWordReducer from "../../reducers/activeWordReducer";
+import HighlightWord from "../functional/HighlightWord";
 
 class Word extends Component {
 
@@ -9,7 +9,7 @@ class Word extends Component {
         if (this.props.word.id== this.props.wordId) {
             console.log("Word.js displayAsterisk word " + this.props.word.word);
             console.log("Word.js displayAsterisk wordId " + this.props.wordId);
-            return "*";
+            return (<HighlightWord/>);
         }else {
             return "";
         }

@@ -5,15 +5,11 @@ import {fetchAWord} from "../../actions/wordFetchAction";
 
 class WordDisplay extends Component {
 
+    componentDidMount() {
+        // debugger;
+        console.log(" WordDisplay.js componentDidMount : " +this.props.match.params.wordId);
+        this.props.fetchAWord(this.props.match.params.wordId)
 
-    static getDerivedStateFromProps(n, p) {
-        debugger;
-        console.log("inside getDerivedStateFromProps n " + n + " p " + p);
-        if (n.props){
-            debugger;
-            console.log(" WordDisplay.js getDerivedStateFromProps : " +n.props.match.params.wordId);
-            n.props.fetchAWord(n.props.match.params.wordId)
-        }
     }
 
     findWord= ()=>{
@@ -46,10 +42,10 @@ class WordDisplay extends Component {
 
 const mapStateToProps = state => {
     console.log("WordDisplay.js: mapStateToProps state " + state ) ;
-    debugger;
+    //debugger;
     let wrd ="";
     if (state.fetchAWordReducer) {
-        wrd = state.fetchAWordReducer[0].word;
+        wrd = state.fetchAWordReducer.word;
         console.log("WordDisplay.js: mapStateToProps wrd " + wrd ) ;
     }
 
